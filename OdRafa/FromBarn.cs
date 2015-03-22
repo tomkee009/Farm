@@ -128,14 +128,14 @@ namespace Farm
         private void SerializeDataSet(string filename,DataSet ds)
         {
             XmlSerializer ser = new XmlSerializer(typeof(DataSet));
-            TextWriter writer = new StreamWriter(@"D:\Dokumenty\PROJEKTY\OdRafa\OdRafa\db\cows.txt");//@Properties.Settings.Default.CowsPath
+            TextWriter writer = new StreamWriter(Application.StartupPath+@"\..\..\db\cows.txt");//@Properties.Settings.Default.CowsPath
             ser.Serialize(writer,ds);
             writer.Close();
         }
         private void DeserializeDataSet(string filename, ref DataSet ds)
         {
             XmlSerializer ser = new XmlSerializer(typeof(DataSet));
-            TextReader reader = new StreamReader(@"D:\Dokumenty\PROJEKTY\OdRafa\OdRafa\db\cows.txt");//@"D:\Dokumenty\PROJEKTY\OdRafa\OdRafa\db\cows.txt"
+            TextReader reader = new StreamReader(Application.StartupPath + @"\..\..\db\cows.txt");//@"D:\Dokumenty\PROJEKTY\OdRafa\OdRafa\db\cows.txt"
             //reader.ReadToEnd();
 
             ds=(DataSet)ser.Deserialize(reader);
