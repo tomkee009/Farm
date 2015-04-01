@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="tblCows">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="dcID" msdata:AutoIncrement="true" type="xs:int" />
+                <xs:element name="dcName" type="xs:string" />
+                <xs:element name="dcBirthDate" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="dcSex" type="xs:string" minOccurs="0" />
+                <xs:element name="dcType" type="xs:string" minOccurs="0" />
+                <xs:element name="dcRace" type="xs:string" minOccurs="0" />
+                <xs:element name="dcWeight" type="xs:double" minOccurs="0" />
+                <xs:element name="dcMilkPerDay" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//tblCows" />
+        <xs:field xpath="dcID" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+    <NewDataSet>
+      <tblCows diffgr:id="tblCows1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+        <dcID>0</dcID>
+        <dcName>Zosia</dcName>
+        <dcBirthDate>2009-01-03T00:00:00+01:00</dcBirthDate>
+        <dcSex>Female</dcSex>
+        <dcType>milkCow</dcType>
+        <dcRace>Łaciata</dcRace>
+        <dcWeight>234</dcWeight>
+        <dcMilkPerDay>5</dcMilkPerDay>
+      </tblCows>
+      <tblCows diffgr:id="tblCows2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
+        <dcID>1</dcID>
+        <dcName>Zenek</dcName>
+        <dcBirthDate>2008-03-03T00:00:00+01:00</dcBirthDate>
+        <dcSex>Male</dcSex>
+        <dcType>meetCow</dcType>
+        <dcRace>Wielkopolska</dcRace>
+        <dcWeight>245</dcWeight>
+        <dcMilkPerDay>0</dcMilkPerDay>
+      </tblCows>
+      <tblCows diffgr:id="tblCows3" msdata:rowOrder="2" diffgr:hasChanges="inserted">
+        <dcID>2</dcID>
+        <dcName>Cosik</dcName>
+        <dcBirthDate>1999-03-05T00:00:00+01:00</dcBirthDate>
+        <dcSex>Unknown</dcSex>
+        <dcType>mixedType</dcType>
+        <dcRace>Milka</dcRace>
+        <dcWeight>100</dcWeight>
+        <dcMilkPerDay>3</dcMilkPerDay>
+      </tblCows>
+    </NewDataSet>
+  </diffgr:diffgram>
+</DataSet>

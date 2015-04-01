@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using System.IO;
 using System.Xml.Serialization;
+using System.Reflection;
 
 namespace Farm
 {
@@ -27,7 +28,7 @@ namespace Farm
         private void Form1_Load(object sender, EventArgs e)
         {
             //deserialize list
-            DeserializeDataSet(@"D:\Dokumenty\PROJEKTY\OdRafa\OdRafa\db\cows.txt", ref dsCows);//@Properties.Settings.Default.CowsPath
+            DeserializeDataSet("cows.txt", ref dsCows);//@Properties.Settings.Default.CowsPath
     
             //lstCows.ValueMember = "dcID";
             lstCows.DataSource = dsCows.Tables[0].DefaultView;//new BindingSource(dsCows.Tables[0], null);
@@ -50,7 +51,7 @@ namespace Farm
         }
         private void FromBarn_FormClosed(object sender, FormClosedEventArgs e)
         {
-            SerializeDataSet("ds", dsCows);
+            SerializeDataSet("cows.txt", dsCows);
         }
 
         private void txtBirthDate_TextChanged(object sender, EventArgs e)
@@ -128,14 +129,14 @@ namespace Farm
         private void SerializeDataSet(string filename,DataSet ds)
         {
             XmlSerializer ser = new XmlSerializer(typeof(DataSet));
-            TextWriter writer = new StreamWriter(@"D:\Dokumenty\PROJEKTY\OdRafa\OdRafa\db\cows.txt");//@Properties.Settings.Default.CowsPath
-            ser.Serialize(writer,ds);
+            TextWriter writer = new StreamWriter(Application.StartupPath + @"\..\..\db\"+filename);//@Properties.Settings.Default.CowsPath
+            ser.Serialize(writer, ds);
             writer.Close();
         }
         private void DeserializeDataSet(string filename, ref DataSet ds)
         {
             XmlSerializer ser = new XmlSerializer(typeof(DataSet));
-            TextReader reader = new StreamReader(@"D:\Dokumenty\PROJEKTY\OdRafa\OdRafa\db\cows.txt");//@"D:\Dokumenty\PROJEKTY\OdRafa\OdRafa\db\cows.txt"
+            TextReader reader = new StreamReader(Application.StartupPath + @"\..\..\db\" + filename);//@"D:\Dokumenty\PROJEKTY\OdRafa\OdRafa\db\cows.txt"
             //reader.ReadToEnd();
 
             ds=(DataSet)ser.Deserialize(reader);
@@ -179,6 +180,40 @@ namespace Farm
             object[] arr = new object[objArr.Length];
             Array.Copy(objArr, arr, objArr.Length);
             return arr;
+        }
+        private string cowsRootAsString()
+        {
+            //var auxList = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();
+
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "Farm.cowsRoot.txt";
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            //using (StreamReader reader = new StreamReader(assembly.GetManifestResourceStream("Farm.cowsRoot.txt")))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                return reader.ReadToEnd();
+            }
+
+        }
+        private string ccc()
+        {
+            //Get the assembly.
+            System.Reflection.Assembly CurrAssembly = System.Reflection.Assembly.LoadFrom(System.Windows.Forms.Application.ExecutablePath);
+
+            //Gets the image from Images Folder.
+            System.IO.Stream stream = CurrAssembly.GetManifestResourceStream("cowsRoot");
+            
+
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+
+        private void tabBarn_Click(object sender, EventArgs e)
+        {
+
         }
      }
 }

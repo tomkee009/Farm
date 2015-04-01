@@ -124,6 +124,7 @@
             this.tabBarn.TabIndex = 0;
             this.tabBarn.Text = "Barn";
             this.tabBarn.UseVisualStyleBackColor = true;
+            this.tabBarn.Click += new System.EventHandler(this.tabBarn_Click);
             // 
             // tabStable
             // 
