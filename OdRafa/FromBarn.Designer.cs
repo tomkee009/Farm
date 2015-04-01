@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FromBarn));
             this.BtnShowHayPrice = new System.Windows.Forms.Button();
             this.LblShowPrice = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -65,6 +66,7 @@
             this.dataColumn5 = new System.Data.DataColumn();
             this.dataColumn6 = new System.Data.DataColumn();
             this.dataColumn7 = new System.Data.DataColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabFarm.SuspendLayout();
             this.tabBarn.SuspendLayout();
             this.tabStable.SuspendLayout();
@@ -116,6 +118,7 @@
             // 
             // tabBarn
             // 
+            this.tabBarn.Controls.Add(this.textBox1);
             this.tabBarn.Controls.Add(this.button1);
             this.tabBarn.Location = new System.Drawing.Point(4, 22);
             this.tabBarn.Name = "tabBarn";
@@ -409,6 +412,18 @@
             this.dataColumn7.ColumnName = "dcMilkPerDay";
             this.dataColumn7.DataType = typeof(double);
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(13, 39);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(685, 310);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
+            // 
             // FromBarn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,6 +436,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabFarm.ResumeLayout(false);
             this.tabBarn.ResumeLayout(false);
+            this.tabBarn.PerformLayout();
             this.tabStable.ResumeLayout(false);
             this.tabStable.PerformLayout();
             this.tabCowshed.ResumeLayout(false);
@@ -471,6 +487,7 @@
         private System.Data.DataColumn dataColumn5;
         private System.Data.DataColumn dataColumn6;
         private System.Data.DataColumn dataColumn7;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
