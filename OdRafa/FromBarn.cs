@@ -54,11 +54,6 @@ namespace Farm
             SerializeDataSet("cows.txt", dsCows);
         }
 
-        private void txtBirthDate_TextChanged(object sender, EventArgs e)
-        {
-            txtBirthDate.Text = (txtBirthDate.Text.Length >= 10) ? txtBirthDate.Text.Substring(0, 10) : txtBirthDate.Text;
-        }
-
         private void BtnShowHayPrice_Click(object sender, EventArgs e)
         {
             
@@ -66,14 +61,7 @@ namespace Farm
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Button t1 = new Button();
-            t1.Location = new Point(100, 100);
-            t1.Size = new Size(50, 10);
-            t1.Text = "Cycki";
-            t1.Parent = this;
-        }
+
 
 
         private void tabCowshed_Enter(object sender, EventArgs e)
@@ -116,8 +104,7 @@ namespace Farm
             
             lstCows.DataSource = dsCows.Tables[0].DefaultView;
             lstCows.DisplayMember = "dcName";
-            lstCows.SelectedIndex = activeRow;
-            //BoundFormToActiveRow(activeRow);
+            lstCows.SelectedIndex = activeRow;          //BoundFormToActiveRow(activeRow);
 
         }
 
@@ -150,7 +137,7 @@ namespace Farm
             lstCows.SelectedIndexChanged -= lstCows_SelectedIndexChanged;
             foreach (Control ctrl in gbxAddEditCow.Controls)
             {
-                if ((ctrl is TextBox) || (ctrl is ComboBox))
+                if ((ctrl is TextBox) || (ctrl is ComboBox) || (ctrl is DateTimePicker))
                 {
                     ctrl.BindingContext[dsCows.Tables[0]].Position = RowNoInDataTable;
                     System.Diagnostics.Debug.WriteLine(ctrl.Name);
@@ -166,7 +153,7 @@ namespace Farm
             {
                 foreach (Control ctrl in gbxAddEditCow.Controls)
                 {
-                    if ((ctrl is TextBox) || (ctrl is ComboBox))
+                    if ((ctrl is TextBox) || (ctrl is ComboBox) || (ctrl is DateTimePicker))
                     {
                         ctrl.DataBindings.Add("Text", dsCows.Tables[0], "dc" + ctrl.Name.Substring(3));
                     }
@@ -215,5 +202,11 @@ namespace Farm
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
      }
 }

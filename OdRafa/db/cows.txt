@@ -31,7 +31,7 @@
       <tblCows diffgr:id="tblCows1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
         <dcID>0</dcID>
         <dcName>Zosia</dcName>
-        <dcBirthDate>2009-01-03T00:00:00+01:00</dcBirthDate>
+        <dcBirthDate>2009-01-10T00:00:00+01:00</dcBirthDate>
         <dcSex>Female</dcSex>
         <dcType>milkCow</dcType>
         <dcRace>Łaciata</dcRace>

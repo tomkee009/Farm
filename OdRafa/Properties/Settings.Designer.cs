@@ -22,14 +22,5 @@ namespace Farm.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("D:\\Dokumenty\\PROJEKTY\\OdRafa\\OdRafa\\db\\cows.txt")]
-        public string CowsPath {
-            get {
-                return ((string)(this["CowsPath"]));
-            }
-        }
     }
 }
