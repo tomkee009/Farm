@@ -36,11 +36,16 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabStable = new System.Windows.Forms.TabPage();
             this.tabCowshed = new System.Windows.Forms.TabPage();
+            this.gbxCowStatistics = new System.Windows.Forms.GroupBox();
+            this.lblMilkPricePerDay = new System.Windows.Forms.Label();
+            this.txtTotalMeetPrice = new System.Windows.Forms.TextBox();
+            this.lblTotalMeetPrice = new System.Windows.Forms.Label();
+            this.txtMilkPricePerDay = new System.Windows.Forms.TextBox();
             this.gbxCows = new System.Windows.Forms.GroupBox();
-            this.lblMilkPrice = new System.Windows.Forms.Label();
-            this.txtMilkPrice = new System.Windows.Forms.TextBox();
-            this.lblMeetPrice = new System.Windows.Forms.Label();
-            this.txtMeetPrice = new System.Windows.Forms.TextBox();
+            this.lblMilkPricePerLiter = new System.Windows.Forms.Label();
+            this.txtMilkPricePerLiter = new System.Windows.Forms.TextBox();
+            this.lblMeetPricePerKg = new System.Windows.Forms.Label();
+            this.txtMeetPricePerKg = new System.Windows.Forms.TextBox();
             this.gbxAddEditCow = new System.Windows.Forms.GroupBox();
             this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
             this.lblMilkPerDay = new System.Windows.Forms.Label();
@@ -70,20 +75,15 @@
             this.dataColumn5 = new System.Data.DataColumn();
             this.dataColumn6 = new System.Data.DataColumn();
             this.dataColumn7 = new System.Data.DataColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblMilkValue = new System.Windows.Forms.Label();
-            this.txtMilkValue = new System.Windows.Forms.TextBox();
-            this.lblCowValue = new System.Windows.Forms.Label();
-            this.txtCowValue = new System.Windows.Forms.TextBox();
             this.tabFarm.SuspendLayout();
             this.tabBarn.SuspendLayout();
             this.tabStable.SuspendLayout();
             this.tabCowshed.SuspendLayout();
+            this.gbxCowStatistics.SuspendLayout();
             this.gbxCows.SuspendLayout();
             this.gbxAddEditCow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsCows)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnShowHayPrice
@@ -126,7 +126,6 @@
             this.tabBarn.TabIndex = 0;
             this.tabBarn.Text = "Barn";
             this.tabBarn.UseVisualStyleBackColor = true;
-            this.tabBarn.Click += new System.EventHandler(this.tabBarn_Click);
             // 
             // textBox1
             // 
@@ -154,7 +153,7 @@
             // 
             // tabCowshed
             // 
-            this.tabCowshed.Controls.Add(this.groupBox1);
+            this.tabCowshed.Controls.Add(this.gbxCowStatistics);
             this.tabCowshed.Controls.Add(this.gbxCows);
             this.tabCowshed.Controls.Add(this.gbxAddEditCow);
             this.tabCowshed.Controls.Add(this.btnDelActive);
@@ -167,54 +166,98 @@
             this.tabCowshed.TabIndex = 2;
             this.tabCowshed.Text = "cowshed";
             this.tabCowshed.UseVisualStyleBackColor = true;
-            this.tabCowshed.Enter += new System.EventHandler(this.tabCowshed_Enter);
-            this.tabCowshed.Leave += new System.EventHandler(this.tabCowshed_Leave);
+            // 
+            // gbxCowStatistics
+            // 
+            this.gbxCowStatistics.Controls.Add(this.lblMilkPricePerDay);
+            this.gbxCowStatistics.Controls.Add(this.txtTotalMeetPrice);
+            this.gbxCowStatistics.Controls.Add(this.lblTotalMeetPrice);
+            this.gbxCowStatistics.Controls.Add(this.txtMilkPricePerDay);
+            this.gbxCowStatistics.Location = new System.Drawing.Point(170, 277);
+            this.gbxCowStatistics.Name = "gbxCowStatistics";
+            this.gbxCowStatistics.Size = new System.Drawing.Size(270, 85);
+            this.gbxCowStatistics.TabIndex = 5;
+            this.gbxCowStatistics.TabStop = false;
+            this.gbxCowStatistics.Text = "Cow Statistics";
+            // 
+            // lblMilkPricePerDay
+            // 
+            this.lblMilkPricePerDay.AutoSize = true;
+            this.lblMilkPricePerDay.Location = new System.Drawing.Point(6, 48);
+            this.lblMilkPricePerDay.Name = "lblMilkPricePerDay";
+            this.lblMilkPricePerDay.Size = new System.Drawing.Size(83, 13);
+            this.lblMilkPricePerDay.TabIndex = 20;
+            this.lblMilkPricePerDay.Text = "Milk value / day";
+            // 
+            // txtTotalMeetPrice
+            // 
+            this.txtTotalMeetPrice.Location = new System.Drawing.Point(107, 19);
+            this.txtTotalMeetPrice.Name = "txtTotalMeetPrice";
+            this.txtTotalMeetPrice.ReadOnly = true;
+            this.txtTotalMeetPrice.Size = new System.Drawing.Size(147, 20);
+            this.txtTotalMeetPrice.TabIndex = 17;
+            // 
+            // lblTotalMeetPrice
+            // 
+            this.lblTotalMeetPrice.AutoSize = true;
+            this.lblTotalMeetPrice.Location = new System.Drawing.Point(6, 22);
+            this.lblTotalMeetPrice.Name = "lblTotalMeetPrice";
+            this.lblTotalMeetPrice.Size = new System.Drawing.Size(57, 13);
+            this.lblTotalMeetPrice.TabIndex = 19;
+            this.lblTotalMeetPrice.Text = "Cow value";
+            // 
+            // txtMilkPricePerDay
+            // 
+            this.txtMilkPricePerDay.Location = new System.Drawing.Point(107, 45);
+            this.txtMilkPricePerDay.Name = "txtMilkPricePerDay";
+            this.txtMilkPricePerDay.ReadOnly = true;
+            this.txtMilkPricePerDay.Size = new System.Drawing.Size(147, 20);
+            this.txtMilkPricePerDay.TabIndex = 18;
             // 
             // gbxCows
             // 
-            this.gbxCows.Controls.Add(this.lblMilkPrice);
-            this.gbxCows.Controls.Add(this.txtMilkPrice);
-            this.gbxCows.Controls.Add(this.lblMeetPrice);
-            this.gbxCows.Controls.Add(this.txtMeetPrice);
+            this.gbxCows.Controls.Add(this.lblMilkPricePerLiter);
+            this.gbxCows.Controls.Add(this.txtMilkPricePerLiter);
+            this.gbxCows.Controls.Add(this.lblMeetPricePerKg);
+            this.gbxCows.Controls.Add(this.txtMeetPricePerKg);
             this.gbxCows.Location = new System.Drawing.Point(447, 16);
             this.gbxCows.Name = "gbxCows";
             this.gbxCows.Size = new System.Drawing.Size(243, 347);
             this.gbxCows.TabIndex = 4;
             this.gbxCows.TabStop = false;
             this.gbxCows.Text = "Cows";
-            this.gbxCows.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // lblMilkPrice
+            // lblMilkPricePerLiter
             // 
-            this.lblMilkPrice.AutoSize = true;
-            this.lblMilkPrice.Location = new System.Drawing.Point(6, 67);
-            this.lblMilkPrice.Name = "lblMilkPrice";
-            this.lblMilkPrice.Size = new System.Drawing.Size(69, 13);
-            this.lblMilkPrice.TabIndex = 10;
-            this.lblMilkPrice.Text = "Milk price [1l]";
+            this.lblMilkPricePerLiter.AutoSize = true;
+            this.lblMilkPricePerLiter.Location = new System.Drawing.Point(6, 67);
+            this.lblMilkPricePerLiter.Name = "lblMilkPricePerLiter";
+            this.lblMilkPricePerLiter.Size = new System.Drawing.Size(69, 13);
+            this.lblMilkPricePerLiter.TabIndex = 10;
+            this.lblMilkPricePerLiter.Text = "Milk price [1l]";
             // 
-            // txtMilkPrice
+            // txtMilkPricePerLiter
             // 
-            this.txtMilkPrice.Location = new System.Drawing.Point(110, 64);
-            this.txtMilkPrice.Name = "txtMilkPrice";
-            this.txtMilkPrice.Size = new System.Drawing.Size(108, 20);
-            this.txtMilkPrice.TabIndex = 9;
+            this.txtMilkPricePerLiter.Location = new System.Drawing.Point(110, 64);
+            this.txtMilkPricePerLiter.Name = "txtMilkPricePerLiter";
+            this.txtMilkPricePerLiter.Size = new System.Drawing.Size(108, 20);
+            this.txtMilkPricePerLiter.TabIndex = 9;
             // 
-            // lblMeetPrice
+            // lblMeetPricePerKg
             // 
-            this.lblMeetPrice.AutoSize = true;
-            this.lblMeetPrice.Location = new System.Drawing.Point(6, 44);
-            this.lblMeetPrice.Name = "lblMeetPrice";
-            this.lblMeetPrice.Size = new System.Drawing.Size(84, 13);
-            this.lblMeetPrice.TabIndex = 8;
-            this.lblMeetPrice.Text = "Meet price [1kg]";
+            this.lblMeetPricePerKg.AutoSize = true;
+            this.lblMeetPricePerKg.Location = new System.Drawing.Point(6, 44);
+            this.lblMeetPricePerKg.Name = "lblMeetPricePerKg";
+            this.lblMeetPricePerKg.Size = new System.Drawing.Size(84, 13);
+            this.lblMeetPricePerKg.TabIndex = 8;
+            this.lblMeetPricePerKg.Text = "Meet price [1kg]";
             // 
-            // txtMeetPrice
+            // txtMeetPricePerKg
             // 
-            this.txtMeetPrice.Location = new System.Drawing.Point(110, 41);
-            this.txtMeetPrice.Name = "txtMeetPrice";
-            this.txtMeetPrice.Size = new System.Drawing.Size(108, 20);
-            this.txtMeetPrice.TabIndex = 7;
+            this.txtMeetPricePerKg.Location = new System.Drawing.Point(110, 41);
+            this.txtMeetPricePerKg.Name = "txtMeetPricePerKg";
+            this.txtMeetPricePerKg.Size = new System.Drawing.Size(108, 20);
+            this.txtMeetPricePerKg.TabIndex = 7;
             // 
             // gbxAddEditCow
             // 
@@ -235,11 +278,10 @@
             this.gbxAddEditCow.Controls.Add(this.txtName);
             this.gbxAddEditCow.Location = new System.Drawing.Point(170, 16);
             this.gbxAddEditCow.Name = "gbxAddEditCow";
-            this.gbxAddEditCow.Size = new System.Drawing.Size(271, 239);
+            this.gbxAddEditCow.Size = new System.Drawing.Size(271, 255);
             this.gbxAddEditCow.TabIndex = 3;
             this.gbxAddEditCow.TabStop = false;
             this.gbxAddEditCow.Text = "EditCow";
-            this.gbxAddEditCow.Enter += new System.EventHandler(this.gbxAddEditCow_Enter);
             // 
             // dtpBirthDate
             // 
@@ -388,7 +430,7 @@
             this.lstCows.DataBindings.Add(new System.Windows.Forms.Binding("SelectedIndex", this.dsCows, "tblCows.dcName", true));
             this.lstCows.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.dsCows, "tblCows.dcName", true));
             this.lstCows.DataSource = this.dsCows;
-            this.lstCows.DisplayMember = "tblCows.dcName";
+            this.lstCows.DisplayMember = "tblCows.dcID";
             this.lstCows.FormattingEnabled = true;
             this.lstCows.Location = new System.Drawing.Point(17, 15);
             this.lstCows.Name = "lstCows";
@@ -460,51 +502,6 @@
             this.dataColumn7.ColumnName = "dcMilkPerDay";
             this.dataColumn7.DataType = typeof(double);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblMilkValue);
-            this.groupBox1.Controls.Add(this.txtMilkValue);
-            this.groupBox1.Controls.Add(this.lblCowValue);
-            this.groupBox1.Controls.Add(this.txtCowValue);
-            this.groupBox1.Location = new System.Drawing.Point(170, 261);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(271, 102);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cow statistics";
-            // 
-            // lblMilkValue
-            // 
-            this.lblMilkValue.AutoSize = true;
-            this.lblMilkValue.Location = new System.Drawing.Point(6, 63);
-            this.lblMilkValue.Name = "lblMilkValue";
-            this.lblMilkValue.Size = new System.Drawing.Size(95, 13);
-            this.lblMilkValue.TabIndex = 20;
-            this.lblMilkValue.Text = "Milk value / month";
-            // 
-            // txtMilkValue
-            // 
-            this.txtMilkValue.Location = new System.Drawing.Point(107, 60);
-            this.txtMilkValue.Name = "txtMilkValue";
-            this.txtMilkValue.Size = new System.Drawing.Size(147, 20);
-            this.txtMilkValue.TabIndex = 18;
-            // 
-            // lblCowValue
-            // 
-            this.lblCowValue.AutoSize = true;
-            this.lblCowValue.Location = new System.Drawing.Point(6, 37);
-            this.lblCowValue.Name = "lblCowValue";
-            this.lblCowValue.Size = new System.Drawing.Size(57, 13);
-            this.lblCowValue.TabIndex = 19;
-            this.lblCowValue.Text = "Cow value";
-            // 
-            // txtCowValue
-            // 
-            this.txtCowValue.Location = new System.Drawing.Point(107, 34);
-            this.txtCowValue.Name = "txtCowValue";
-            this.txtCowValue.Size = new System.Drawing.Size(147, 20);
-            this.txtCowValue.TabIndex = 17;
-            // 
             // FromBarn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,21 +511,21 @@
             this.Name = "FromBarn";
             this.Text = "Farm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FromBarn_FormClosed);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FromBarn_Load);
             this.tabFarm.ResumeLayout(false);
             this.tabBarn.ResumeLayout(false);
             this.tabBarn.PerformLayout();
             this.tabStable.ResumeLayout(false);
             this.tabStable.PerformLayout();
             this.tabCowshed.ResumeLayout(false);
+            this.gbxCowStatistics.ResumeLayout(false);
+            this.gbxCowStatistics.PerformLayout();
             this.gbxCows.ResumeLayout(false);
             this.gbxCows.PerformLayout();
             this.gbxAddEditCow.ResumeLayout(false);
             this.gbxAddEditCow.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsCows)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -572,15 +569,15 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DateTimePicker dtpBirthDate;
         private System.Windows.Forms.GroupBox gbxCows;
-        private System.Windows.Forms.Label lblMilkPrice;
-        private System.Windows.Forms.TextBox txtMilkPrice;
-        private System.Windows.Forms.Label lblMeetPrice;
-        private System.Windows.Forms.TextBox txtMeetPrice;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblMilkValue;
-        private System.Windows.Forms.TextBox txtMilkValue;
-        private System.Windows.Forms.Label lblCowValue;
-        private System.Windows.Forms.TextBox txtCowValue;
+        private System.Windows.Forms.Label lblMilkPricePerLiter;
+        private System.Windows.Forms.TextBox txtMilkPricePerLiter;
+        private System.Windows.Forms.Label lblMeetPricePerKg;
+        private System.Windows.Forms.TextBox txtMeetPricePerKg;
+        private System.Windows.Forms.Label lblMilkPricePerDay;
+        private System.Windows.Forms.TextBox txtMilkPricePerDay;
+        private System.Windows.Forms.Label lblTotalMeetPrice;
+        private System.Windows.Forms.TextBox txtTotalMeetPrice;
+        private System.Windows.Forms.GroupBox gbxCowStatistics;
     }
 }
 

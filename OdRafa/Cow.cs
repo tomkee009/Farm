@@ -5,30 +5,46 @@ using System.Text;
 
 namespace Farm
 {
-    class Cow:Animal
+    [Serializable()] 
+    public class Cow:Animal
     {
+        public static double MeetPricePerKg;
+        public static double MilkPricePerLiter;
+
         public EnumType Type { get; set; }
         public double MilkPerDay { get; set; }
 
-
+        public double TotalMeetPrice
+        { 
+            get 
+            {
+                return productivity * _Weight * MeetPricePerKg;
+            } 
+        }
+        public double MilkPricePerDay
+        {
+            get
+            {
+                return MilkPerDay*MilkPricePerLiter;
+            }
+        }
     }
-    class Pig : Animal
+    public class Pig : Animal
     {
-        private double productivity = 0.7;
         public double MeatFromPig
         {
             get
             {
                 return productivity * _Weight;
-
             }
         }
 
 
     }
 
-    abstract class Animal 
+    public abstract class Animal 
     {
+        protected static double productivity=0.8;
         public string Name { get; set; }
         protected DateTime _BirthDate;
         public DateTime BirthDate {

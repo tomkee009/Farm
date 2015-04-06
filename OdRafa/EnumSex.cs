@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Farm
 {
-    enum EnumSex
+    public enum EnumSex
     {
         Male,
         Female,

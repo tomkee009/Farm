@@ -77,5 +77,14 @@ namespace Farm.Properties {
                 return ResourceManager.GetString("cows", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string cows1 {
+            get {
+                return ResourceManager.GetString("cows1", resourceCulture);
+            }
+        }
     }
 }

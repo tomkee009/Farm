@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Farm
 {
-    enum EnumRace
+    public enum EnumRace
     {
         Flamandzka,
         Łaciata,

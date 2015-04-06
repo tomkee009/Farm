@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Farm
 {
-    enum EnumType
+    public enum EnumType
     {
         milkCow,
         meetCow,
